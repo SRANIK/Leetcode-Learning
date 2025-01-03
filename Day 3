@@ -6,6 +6,10 @@ For example, The integer 5 is "101" in binary and its complement is "010" which 
 
 Given an integer n, return its complement.
 
+Constraints:
+
+0 <= n < 109
+
 Example 1:
 Input: n = 5
 Output: 2
