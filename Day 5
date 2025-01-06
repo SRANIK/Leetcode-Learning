@@ -42,3 +42,19 @@ int findFinalValue(int* nums, int numsSize, int original) {
     return original;
 }
 
+
+Time Complexity:
+1.	Loop Analysis:
+o	The outer loop runs from i = 0 to i < numsSize. Under normal circumstances, this would be an O(n) loop.
+o	However, since i is set to -1 each time a match is found, it causes the loop to restart. In the worst case, this could result in multiple passes through the array.
+2.	Worst-case scenario:
+o	Suppose original is found and doubled multiple times. Each time a match is found, the loop could start over, resulting in a potential O(n) operation each time.
+o	The number of times the loop resets depends on how many times original is found and doubled. If it can be doubled k times, the loop could run O(k * n) in the worst case.
+Given these factors, the worst-case time complexity can be considered as: O(k * n) where k is the number of doublings. In the worst case, this could approach O(n^2) if k and n are large.
+Space Complexity:
+1.	Variables:
+o	int original: Takes O(1) space.
+o	Loop variables: int i and intermediate calculations.
+Since the function does not use any additional data structures or memory that scale with the input size, the space complexity is: O(1)
+
+
