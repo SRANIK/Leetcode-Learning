@@ -53,3 +53,18 @@ bool isUgly(int n) {
     return(n == 1);
 }
 
+
+Time Complexity:
+1.	Initial Check:
+o	if(n<=0): This is an O(1) operation.
+2.	While Loop:
+o	while(n>1): This loop continues to divide n by 2, 3, or 5 until n is less than or equal to 1.
+o	In each iteration, the value of n is reduced by a factor of 2, 3, or 5. In the worst case, n is reduced by the smallest factor (2) in each iteration.
+Since n is divided by 2 in each iteration, the number of iterations is proportional to the number of times n can be divided by 2 until it becomes 1. This is approximately log2(n). Therefore, the time complexity is: O(log n)
+Space Complexity:
+1.	Variables:
+o	int n: The input integer.
+o	The function uses a few additional variables to store the intermediate results of the division operations, but these do not depend on the size of the input.
+There are no additional data structures used that scale with the input size.
+Therefore, the space complexity is: O(1)
+
