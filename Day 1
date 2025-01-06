@@ -62,3 +62,8 @@ public:
         return count;
     }
 };
+
+Time complexity is O (n1 * n2)
+
+The space complexity of O(1) means that the function uses a constant amount of extra space regardless of the input size. This is because no additional space is required that scales with the size of arr1 or arr2.
+
