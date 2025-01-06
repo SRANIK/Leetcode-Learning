@@ -51,3 +51,19 @@ public:
     }
 };
 
+
+
+Time Complexity:
+1.	Initialization: n = s.size();int count1 = 0, count2 = 0  O(1)
+2.	Loops  O(n) 
+3.	Return Statement:
+o	return min(count1, count2); This takes O(1) time.
+Since each loop runs independently and each takes O(n) time, the overall time complexity is: O(n) + O(n) = O(n)
+Space Complexity:
+1.	Variables:
+o	int n: Takes O (1) space.
+o	int count1 and int count2: Take O(1) space each.
+2.	No additional data structures: The function does not use any additional data structures that depend on the size of the input.
+Therefore, the space complexity is: O(1)
+
+
