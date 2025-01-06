@@ -43,3 +43,23 @@ int bitwiseComplement(int n) {
     return sum;
 }
 
+
+Time Complexity:
+1.	Initial Check:
+•	if (n == 0): This is an O(1) operation.
+2.	Loop:
+•	for(int i = 0; n; i++): This loop runs while n is non-zero. In each iteration:
+
+sum |= ((n&1)^1)<<i: This is an O(1) operation.
+
+•	n>>=1: This effectively divides n by 2.
+
+Since n is divided by 2 in each iteration, the number of iterations is proportional to the number of bits in n. The number of bits in n is approximately log2(n). Hence, the loop runs O(log n) times.
+Therefore, the overall time complexity is: O(log n)
+Space Complexity:
+1.	Variables:
+o	int sum: Takes O(1) space.
+o	int i: Loop variable, takes O(1) space.
+The function does not use any additional space that scales with the size of the input.
+Therefore, the space complexity is: O(1)
+
