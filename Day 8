@@ -1,0 +1,64 @@
+520. Detect Capital(Easy)
+
+We define the usage of capitals in a word to be right when one of the following cases holds:
+•	All letters in this word are capitals, like "USA".
+•	All letters in this word are not capitals, like "leetcode".
+•	Only the first letter in this word is capital, like "Google".
+Given a string word, return true if the usage of capitals in it is right.
+
+Constraints:
+•	1 <= word.length <= 100
+•	word consists of lowercase and uppercase English letters.
+
+Example 1:
+Input: word = "USA"
+Output: true
+Example 2:
+Input: word = "FlaG"
+Output: false
+
+
+//Code
+bool detectCapitalUse(char* word) {
+    int allcaps = 0;
+    int allsmall = 0;
+    int i = 0;
+    int firstCap = (word[0]>='A' && word[0]<='Z');
+
+    for(i=0; word[i] != '\0'; i++)
+    {
+        if(word[i] >= 'A' && word[i] <= 'Z')
+        {
+            allcaps++;
+        }
+        else if(word[i] >= 'a' && word[i] <= 'z')
+        {
+            allsmall++;
+        }
+        else
+        {
+
+        }
+    }
+
+    if((allcaps == i) || (allsmall == i) || ((allcaps ==1) &&firstCap) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+Time Complexity
+The function iterates through each character of the input string word exactly once.
+•	The loop for(i=0; word[i] != '\0'; i++) runs for nn iterations, where nn is the length of the string.
+•	Each iteration involves constant time operations (comparisons and increments).
+Therefore, the time complexity is O(n)
+	Space Complexity
+The space complexity is determined by the amount of extra memory used by the function.
+•	The function uses a few integer variables (allcaps, allsmall, i, and firstCap), all of which occupy constant space.
+•	No additional data structures or dynamic memory allocations are used.
+Therefore, the space complexity is O(1).
+
