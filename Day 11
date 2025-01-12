@@ -1,0 +1,48 @@
+342. Power of Four(Easy)
+
+Given an integer n, return true if it is a power of four. Otherwise, return false.
+An integer n is a power of four, if there exists an integer x such that n == 4x.
+
+Constraints:
+•	-231 <= n <= 231 - 1
+ 
+
+Example 1:
+Input: n = 16
+Output: true
+Example 2:
+Input: n = 5
+Output: false
+Example 3:
+Input: n = 1
+Output: true
+
+//Code
+bool isPowerOfFour(int n) {
+    if(n==0) {
+        return false;
+    }
+    while (1){
+        if(n==1 || n==4) {
+            return true;
+        }
+        if(n%4!=0) {
+            return false;
+        }
+        n=n/4;
+    };
+    return true;
+}
+
+
+Time Complexity:
+The function primarily involves a loop that:
+1.	Divides the number n by 4 repeatedly.
+2.	Checks if n is 1, 4, or not divisible by 4.
+Each division operation reduces n by a factor of 4, which can be visualized as an exponential decay in magnitude from n down to 1.
+
+Thus, the time complexity T(n) is logarithmic, specifically O(log4n)), which can be simplified to O(log n) because logarithms of different bases differ only by a constant factor (which is inconsequential in Big-O notation).
+Space Complexity:
+The smart utilization of space in your function means no extra space allocation other than for the integer variable n. The function manipulates n in place and doesn't use any extra arrays or recursion stacks. This implies that the space complexity is O(1).
+
+
