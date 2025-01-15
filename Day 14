@@ -1,0 +1,77 @@
+1394. Find Lucky Integer in an Array(Easy)
+
+Given an array of integers arr, a lucky integer is an integer that has a frequency in the array equal to its value.
+Return the largest lucky integer in the array. If there is no lucky integer return -1.
+ 
+Example 1:
+Input: arr = [2,2,3,4]
+Output: 2
+Explanation: The only lucky number in the array is 2 because frequency[2] == 2.
+Example 2:
+Input: arr = [1,2,2,3,3,3]
+Output: 3
+Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
+Example 3:
+Input: arr = [2,2,2,3,3]
+Output: -1
+Explanation: There are no lucky numbers in the array.
+ 
+Constraints:
+•	1 <= arr.length <= 500
+•	1 <= arr[i] <= 500
+
+//Code
+int findLucky(int* arr, int arrSize) {
+    int hash[501] = {};
+    for (int i = 0; i < arrSize; ++i)
+        hash[arr[i]]++;
+    for (int i = 500; i > 0; --i)
+        if (hash[i] == i)
+            return i;
+    return -1;
+}
+
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+
+Much Optimized Code
+===================
+
+
+int findLucky(int* arr, int arrSize) {
+    int freq = 1;       // To count the frequency of the current number
+
+    int luckynum = -1;  // Initialize the lucky number to -1 (default if none found
+
+    int i;
+
+    for (i = 0; i < arrSize; i++) {
+
+        freq = 1;  // Reset frequency for each new number
+
+        // Count occurrences of arr[i] in the array
+        for (int j = 0; j < arrSize; j++) {
+
+            if (i != j && arr[i] == arr[j]) {
+                freq++;
+
+            }
+        }
+
+        // Check if the current number is a lucky number
+        if (freq == arr[i]) {
+
+            if (arr[i] > luckynum) {  // Update to the largest lucky number found
+
+                luckynum = arr[i];
+            }
+        }
+    }
+    return luckynum;  // Return the largest lucky number, or -1 if none found
+}
+
+
+Time Complexity: O(n2)
+Space Complexity: O(1)
