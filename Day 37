@@ -1,0 +1,54 @@
+345. Reverse Vowels of a String
+
+Given a string s, reverse only all the vowels in the string and return it.
+
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+ 
+
+Example 1:
+
+Input: s = "IceCreAm"
+
+Output: "AceCreIm"
+
+Explanation:
+
+The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
+
+Example 2:
+
+Input: s = "leetcode"
+
+Output: "leotcede"
+
+ 
+
+Constraints:
+
+1 <= s.length <= 3 * 105
+s consist of printable ASCII characters.
+
+//Code
+char* reverseVowels(char* s) {
+    bool isVowel(char cr) {
+        return cr == 'a' || cr == 'e' || cr == 'i' || cr == 'o' || cr == 'u' ||
+                cr == 'A' || cr == 'E' || cr == 'I' || cr == 'O' || cr == 'U';
+    }
+
+    int ptr1 = 0, ptr2 = strlen(s) - 1;
+    while (ptr1 < ptr2) {
+        if (isVowel(s[ptr1]) && isVowel(s[ptr2])) {
+            char temp = s[ptr1];
+            s[ptr1] = s[ptr2];
+            s[ptr2] = temp;
+            
+            ptr1++;
+            ptr2--;
+        } else if (!isVowel(s[ptr1]))
+            ptr1++;
+        else
+            ptr2--;
+    }
+    return s;
+}
